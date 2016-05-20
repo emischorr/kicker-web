@@ -14,23 +14,27 @@
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="">Players</a></li>
-          </ul>
-        </nav>
-      </header>
+    <header class="header">
+      <nav class="navigation container" role="navigation">
+        <ul class="left">
+          <li><a href="/">Dashboard</a></li>
+          <li><a href="/live">Live</a></li>
+          <li><a href="/players">Players</a></li>
+          <li><a href="/matches">Matches</a></li>
+        </ul>
+        <ul class="right">
+          <li><a href="">Login</a></li>
+        </ul>
+      </nav>
+    </header>
 
+    <main class="main container" role="main">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
+      <%= render @view_module, @view_template, assigns %>
+    </main>
 
-    </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-defmodule KickerWeb.Match do
+defmodule KickerWeb.MatchServer do
   use GenServer
   require Logger
 
@@ -22,7 +22,11 @@ defmodule KickerWeb.Match do
   end
 
   def goal(team) do
-    GenServer.call(@process_name, {:goal, team})
+    try do
+      GenServer.call(@process_name, {:goal, team})
+    catch
+      :exit, _ -> "match not yet started"
+    end
   end
 
 
@@ -51,6 +55,7 @@ defmodule KickerWeb.Match do
     Logger.debug "Unknown message: #{msg}"
     {:noreply, state}
   end
+
 
 
   defp broadcast_state(state) do

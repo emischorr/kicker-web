@@ -29,8 +29,8 @@ defmodule KickerWeb.Event.Receiver do
     "event."<>event = elem(topic, 1)
     IO.puts "Handling Event <#{event}>: #{inspect message}"
     case event do
-      "start" -> KickerWeb.Match.start_match()
-      "goal" -> KickerWeb.Match.goal(message)
+      "start" -> KickerWeb.MatchServer.start_match()
+      "goal" -> KickerWeb.MatchServer.goal(message)
         x -> Logger.warn "Unknown event: #{x}"
     end
 

@@ -37,7 +37,9 @@ defmodule KickerWeb.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
-     {:redix, ">= 0.0.0"}]
+     {:redix, ">= 0.0.0"},
+     {:secure_random, "~> 0.2"},
+     {:comeonin, "~> 2.1"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.

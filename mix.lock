@@ -1,4 +1,5 @@
-%{"connection": {:hex, :connection, "1.0.2", "f4a06dd3ecae4141aa66f94ce92ea4c4b8753069472814932f1cadbc3078ab80", [:mix], []},
+%{"comeonin": {:hex, :comeonin, "2.4.0", "2dc7526b6352f7cf03de79c1e19b5154ac021da48b0c1790a12841ef5ca00340", [:mix, :make, :make], []},
+  "connection": {:hex, :connection, "1.0.2", "f4a06dd3ecae4141aa66f94ce92ea4c4b8753069472814932f1cadbc3078ab80", [:mix], []},
   "cowboy": {:hex, :cowboy, "1.0.4", "a324a8df9f2316c833a470d918aaf73ae894278b8aa6226ce7a9bf699388f878", [:rebar, :make], [{:cowlib, "~> 1.0.0", [hex: :cowlib, optional: false]}, {:ranch, "~> 1.0", [hex: :ranch, optional: false]}]},
   "cowlib": {:hex, :cowlib, "1.0.2", "9d769a1d062c9c3ac753096f868ca121e2730b9a377de23dec0f7e08b1df84ee", [:make], []},
   "decimal": {:hex, :decimal, "1.1.2", "79a769d4657b2d537b51ef3c02d29ab7141d2b486b516c109642d453ee08e00c", [:mix], []},
@@ -16,5 +17,6 @@
   "poolboy": {:hex, :poolboy, "1.5.1", "6b46163901cfd0a1b43d692657ed9d7e599853b3b21b95ae5ae0a777cf9b6ca8", [:rebar], []},
   "ranch": {:hex, :ranch, "1.2.1", "a6fb992c10f2187b46ffd17ce398ddf8a54f691b81768f9ef5f461ea7e28c762", [:make], []},
   "redix": {:hex, :redix, "0.3.6", "882b3b9a81ac1245277a0ee60a0f33fef39dc5f988f513b605c8c93f40f7206f", [:mix], [{:connection, "~> 1.0.0", [hex: :connection, optional: false]}]},
+  "secure_random": {:hex, :secure_random, "0.3.0", "3091ffcf1b5323b1739be87efa0ba51f27207ab09c200f36dd70c00f685bf735", [:mix], []},
   "sqlite_ecto": {:hex, :sqlite_ecto, "1.1.0", "7a1b2c85670264d80d34bf2372ed8f3ae75ea97a2fdd5b791e35968b84e18a37", [:mix], [{:sqlitex, "~> 0.8", [hex: :sqlitex, optional: false]}, {:poison, "~> 1.0", [hex: :poison, optional: false]}, {:ecto, "~> 1.1", [hex: :ecto, optional: false]}]},
   "sqlitex": {:hex, :sqlitex, "0.8.3", "226901fe73fb9d74a5bc742594074dc3cac725ee632d595a704dd8bf92661044", [:mix], [{:pipe, "~> 0.0.2", [hex: :pipe, optional: false]}, {:esqlite, "~> 0.2.0", [hex: :esqlite, optional: false]}, {:decimal, "~> 1.1.0", [hex: :decimal, optional: false]}]}}

@@ -26,7 +26,10 @@ defmodule KickerWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", KickerWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", KickerWeb do
+    pipe_through :api
+
+    resources "/players", PlayerController, except: [:new, :edit]
+    resources "/matches", MatchController, except: [:new, :edit]
+  end
 end

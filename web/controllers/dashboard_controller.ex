@@ -16,7 +16,7 @@ defmodule KickerWeb.DashboardController do
     IO.inspect KickerWeb.Redis.command(~w(PUBLISH event.start 1))
     # conn
     # |> put_status(:created)
-    # |> render("match.json", session: session, user: user)
+    # |> render("match.json", session: session, player: player)
     json conn, "test"
   end
 end
