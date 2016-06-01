@@ -1,4 +1,4 @@
-defmodule KickerWeb.ChangesetView do
+defmodule KickerWeb.API.ChangesetView do
   use KickerWeb.Web, :view
 
   @doc """

@@ -1,1 +1,76 @@
 <h2>Dashboard</h2>
+
+<div class="dashboard">
+
+  <div class="widget box">
+    <header>Current Match</header>
+    <div class="body">
+      <div id="match-result" class="result">
+        <span>0:0</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="widget box">
+    <header>Last Matches</header>
+    <div class="body">
+      <ul>
+        <li>Team 1 - Team 2</li>
+        <li>Team 1 - Team 2</li>
+        <li>Team 1 - Team 2</li>
+        <li>Team 1 - Team 2</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="widget box">
+    <header>Current Season</header>
+    <div class="body">
+      <ul>
+        <li>Team 1</li>
+        <li>Team 1</li>
+        <li>Team 1</li>
+        <li>Team 1</li>
+        <li>Team 1</li>
+        <li>Team 1</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="widget box">
+    <header>Top Players</header>
+    <div class="body">
+      <ul>
+        <li>Player 1</li>
+        <li>Player 1</li>
+        <li>Player 1</li>
+        <li>Player 1</li>
+        <li>Player 1</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="widget box">
+    <header>Top Teams</header>
+    <div class="body">
+      <ul>
+        <li>Team 1</li>
+        <li>Team 1</li>
+        <li>Team 1</li>
+        <li>Team 1</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="widget box">
+    <header>Players logged in</header>
+    <div class="body">
+      <ul>
+        <li>Player 1</li>
+        <li>Player 1</li>
+        <li>Player 1</li>
+      </ul>
+    </div>
+  </div>
+
+</div>

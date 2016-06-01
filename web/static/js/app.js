@@ -33,7 +33,7 @@ channel.join()
 channel.on("result", state => {
   console.log("update result")
   // update result
-  $('.live-result span').html(state.team1+":"+state.team2)
+  $('#match-result span').html(state.team1+":"+state.team2)
 })
 
 var csrf = document.querySelector("meta[name=csrf]").content;

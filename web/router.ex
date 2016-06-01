@@ -20,16 +20,21 @@ defmodule KickerWeb.Router do
   scope "/", KickerWeb do
     pipe_through :browser # Use the default browser stack
 
+    resources "sessions", SessionController, only: [ :new, :create ], singleton: true
+    get "logout", SessionController, :delete
+
     get "/", DashboardController, :index
     get "/live", DashboardController, :live
     post "/start", DashboardController, :start
+    resources "/players", PlayerController
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", KickerWeb do
+  scope "/api", KickerWeb.API do
     pipe_through :api
 
     resources "/players", PlayerController, except: [:new, :edit]
     resources "/matches", MatchController, except: [:new, :edit]
+    resources "/rulesets", RulesetController, except: [:new, :edit]
   end
 end

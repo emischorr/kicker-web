@@ -1,4 +1,4 @@
-<div class="live-result">
+<div id="match-result" class="live result">
   <span>0:0</span>
 </div>
 <span id="start-button">Start new match</span>

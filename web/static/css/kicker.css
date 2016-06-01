@@ -1,5 +1,83 @@
+.login {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  width: 400px;
+  margin: auto;
+  padding: 10px;
+}
 
-.live-result {
+.login input[type=text], .login input[type=password] {
+  width: 100%;
+  font-size: 1em;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+form .actions {
+  margin-top: 30px;
+}
+
+input {
+  box-sizing: border-box;
+  padding: 4px;
+}
+
+.box {
+  background: #2F2F2F;
+  box-shadow: 0px 2px 35px 0px rgba(0,0,0,0.75);
+  border: 4px solid #383838;
+  box-sizing: border-box;
+}
+
+.widget {
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+  margin: 1%;
+}
+
+.box header {
+  padding: 10px;
+  font-weight: bold;
+  background: #383838;
+  color: #68A568;
+  /*box-shadow: 0px -4px 30px 0px rgba(0,0,0,0.75);*/
+}
+
+.box .body {
+  padding: 6px;
+  box-sizing: border-box;
+  min-height: 80px;
+  max-height: 300px;
+  overflow-y: scroll;
+  border: 4px solid rgba(45, 45, 45, 0.75);
+}
+
+.player {
+  width: 300px;
+}
+
+.player img.profile {
+  float: left;
+  max-width: 120px;
+  max-height: 120px;
+}
+
+.player .body {
+  min-height: 120px;
+}
+
+.result {
+  font-size: 4em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.live.result {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -9,8 +87,6 @@
   width: 800px;
   height: 400px;
   font-size: 20em;
-  text-align: center;
-  vertical-align: middle;
   line-height: 400px;
   overflow: hidden;
 }

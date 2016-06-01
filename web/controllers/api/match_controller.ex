@@ -1,4 +1,4 @@
-defmodule KickerWeb.MatchController do
+defmodule KickerWeb.API.MatchController do
   use KickerWeb.Web, :controller
 
   alias KickerWeb.Match
@@ -22,7 +22,7 @@ defmodule KickerWeb.MatchController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(KickerWeb.ChangesetView, "error.json", changeset: changeset)
+        |> render(KickerWeb.API.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
@@ -41,7 +41,7 @@ defmodule KickerWeb.MatchController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(KickerWeb.ChangesetView, "error.json", changeset: changeset)
+        |> render(KickerWeb.API.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
