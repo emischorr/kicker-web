@@ -5,7 +5,8 @@ defmodule KickerWeb.DashboardController do
 
   def index(conn, _params) do
     IO.inspect KickerWeb.Redis.command(~w(PUBLISH event.goal 1))
-    render conn, "index.html"
+    top_players = []
+    render conn, "index.html", top_players: top_players
   end
 
   def live(conn, _params) do

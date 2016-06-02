@@ -19,6 +19,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: #68A568;
 }
 
 .alert {
@@ -76,6 +77,16 @@ a {
 
 .right {
   float: right;
+}
+
+table .left {
+  text-align: left;
+  float: none;
+}
+
+table .right {
+  text-align: right;
+  float: none;
 }
 
 .container {

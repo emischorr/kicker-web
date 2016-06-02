@@ -27,14 +27,16 @@ defmodule KickerWeb.Router do
     get "/live", DashboardController, :live
     post "/start", DashboardController, :start
     resources "/players", PlayerController
+    resources "/matches", MatchController, only: [:index, :show]
   end
 
   # Other scopes may use custom stacks.
   scope "/api", KickerWeb.API do
     pipe_through :api
 
+    resources "/tables", TableController, except: [:new, :edit]
     resources "/players", PlayerController, except: [:new, :edit]
-    resources "/matches", MatchController, except: [:new, :edit]
+    resources "/matches", MatchController, only: [:index, :show]
     resources "/rulesets", RulesetController, except: [:new, :edit]
   end
 end

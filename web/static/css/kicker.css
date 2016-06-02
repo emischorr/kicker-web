@@ -38,6 +38,7 @@ input {
   vertical-align: top;
   width: 30%;
   margin: 1%;
+  min-width: 200px;
 }
 
 .box header {
@@ -69,6 +70,17 @@ input {
 
 .player .body {
   min-height: 120px;
+}
+
+.widget table {
+  width: 100%;
+}
+
+.widget th {
+  font-size: 0.8em;
+  color: #ADADAD;
+  text-align: left;
+  padding-bottom: 10px;
 }
 
 .result {

@@ -19,6 +19,7 @@
         <ul class="left">
           <li class="active"><a href="/">Dashboard</a></li>
           <li><a href="/live">Live</a></li>
+          <li><a href="/tables">Tables</a></li>
           <li><a href="/players">Players</a></li>
           <li><a href="/matches">Matches</a></li>
           <li><a href="/rules">Rules</a></li>
