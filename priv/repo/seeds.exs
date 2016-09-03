@@ -15,3 +15,6 @@ KickerWeb.Repo.insert(%KickerWeb.Table{name: "Kicker"})
 KickerWeb.Repo.insert(%KickerWeb.Ruleset{name: "default match", goal_limit: 5, duration_limit: 0 })
 KickerWeb.Repo.insert(%KickerWeb.Ruleset{name: "death match", goal_limit: 1, duration_limit: 0 })
 KickerWeb.Repo.insert(%KickerWeb.Ruleset{name: "competition match", goal_limit: 10, duration_limit: 5*60 })
+
+guest = KickerWeb.Player.changeset(%KickerWeb.Player{}, %{forename: "Guest", email: "guest@example.com", password: "guest"})
+KickerWeb.Repo.insert(guest)

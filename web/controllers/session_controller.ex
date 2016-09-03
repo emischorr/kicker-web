@@ -12,7 +12,7 @@ defmodule KickerWeb.SessionController do
     changeset = Player.changeset %Player{}, session
     if player = Player.authenticate?(changeset) do
       conn
-        |> put_session(:player_id, player.id)
+        |> put_session(:player_id, player)
         |> redirect(to: dashboard_path(conn, :index))
     end
     render conn, "new.html", changeset: changeset

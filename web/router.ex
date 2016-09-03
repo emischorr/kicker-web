@@ -27,7 +27,8 @@ defmodule KickerWeb.Router do
     get "/live", DashboardController, :live
     post "/start", DashboardController, :start
     resources "/players", PlayerController
-    resources "/matches", MatchController, only: [:index, :show]
+    get "/profile", PlayerController, :profile
+    resources "/matches", MatchController#, only: [:index, :show]
   end
 
   # Other scopes may use custom stacks.

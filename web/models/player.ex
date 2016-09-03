@@ -2,16 +2,26 @@ defmodule KickerWeb.Player do
   use KickerWeb.Web, :model
 
   schema "players" do
-    field :name, :string
+    field :forename, :string
+    field :nick, :string
+    field :surname, :string
+    field :bio, :string
     field :email, :string
     field :encrypted_password, :string
     field :password, :string, virtual: true
 
+    has_many :matches, KickerWeb.Match
+
     timestamps()
   end
 
-  @required_fields ~w(name email)
-  @optional_fields ~w()
+  @required_fields ~w(forename email)a
+  @optional_fields ~w(nick surname bio)a
+
+  def by_email(query, email) do
+    from p in query,
+    where: p.email == ^email
+  end
 
   def authenticate?(player_param) do
     query = from u in KickerWeb.Player,
@@ -42,7 +52,7 @@ defmodule KickerWeb.Player do
   defp cast_password(changeset, params) do
     case get_field(changeset, :encrypted_password) do
       nil -> cast(changeset, params, ~w(password), ~w())
-      _ -> cast(changeset, params, ~w(), ~w(password))
+      _ -> changeset # cast(changeset, params, ~w(), ~w(password))
     end
   end
 
@@ -54,12 +64,13 @@ defmodule KickerWeb.Player do
   """
   def changeset(model, params \\ %{}) do
     model
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, @required_fields ++ @optional_fields)
+    |> validate_required(@required_fields)
     |> cast_password(params)
-    |> validate_length(:name, min: 3)
+    |> validate_length(:forename, min: 3)
     |> validate_format(:email, ~r/@/)
     |> validate_length(:password, min: 5)
-    |> validate_confirmation(:password, message: "Password does not match")
+    # |> validate_confirmation(:password, message: "Password does not match")
     |> unique_constraint(:email, message: "Email already taken")
     |> generate_encrypted_password
   end

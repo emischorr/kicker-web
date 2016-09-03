@@ -1,1 +1,25 @@
-<h2><%= @player.name %></h2>
+<h2 class="name"><%= name(@player) %></h2>
+<div style="float: left; margin-right: 10px;">
+  <img src="/images/player.jpg" class="profile"/>
+</div>
+<ul>
+  <li>
+    <span class="key">Matches:</span>
+    <span class="value"><%= @player_statistics.matches %></span>
+  </li>
+  <li>
+    <span class="key">Won:</span>
+    <span class="value"><%= @player_statistics.won %></span>
+  </li>
+  <li>
+    <span class="key">Lost:</span>
+    <span class="value"><%= @player_statistics.lost %></span>
+  </li>
+  <li>
+    <span class="key">Locks:</span>
+    <span class="value"><%= @player_statistics.lost_with_no_goals %></span>
+  </li>
+</ul>
+<div>
+  <%= @player.bio %>
+</div>

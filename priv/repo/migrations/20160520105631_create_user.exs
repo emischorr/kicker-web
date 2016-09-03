@@ -3,7 +3,10 @@ defmodule KickerWeb.Repo.Migrations.CreatePlayer do
 
   def change do
     create table(:players) do
-      add :name, :string, null: false
+      add :forename, :string, null: false
+      add :nick, :string
+      add :surname, :string
+      add :bio, :string
       add :email, :string, null: false
       add :encrypted_password, :string, null: false
 

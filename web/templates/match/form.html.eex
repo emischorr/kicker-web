@@ -1,0 +1,47 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :keeper_team1, class: "control-label" %>
+    <%= select f, :keeper_team1_id, Enum.map(@players, &{&1.forename, &1.id}), prompt: "--", class: "form-control" %>
+    <%= error_tag f, :keeper_team1_id %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :striker_team1, class: "control-label" %>
+    <%= select f, :striker_team1_id, Enum.map(@players, &{&1.forename, &1.id}), prompt: "--", class: "form-control" %>
+    <%= error_tag f, :striker_team1_id %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :goals_team1, class: "control-label" %>
+    <%= number_input f, :goals_team1, class: "form-control" %>
+    <%= error_tag f, :goals_team1 %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :goals_team2, class: "control-label" %>
+    <%= number_input f, :goals_team2, class: "form-control" %>
+    <%= error_tag f, :goals_team2 %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :keeper_team2, class: "control-label" %>
+    <%= select f, :keeper_team2_id, Enum.map(@players, &{&1.forename, &1.id}), prompt: "--", class: "form-control" %>
+    <%= error_tag f, :keeper_team2_id %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :striker_team2, class: "control-label" %>
+    <%= select f, :striker_team2_id, Enum.map(@players, &{&1.forename, &1.id}), prompt: "--", class: "form-control" %>
+    <%= error_tag f, :striker_team2_id %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

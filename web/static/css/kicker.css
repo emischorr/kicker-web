@@ -31,6 +31,8 @@ input {
   box-shadow: 0px 2px 35px 0px rgba(0,0,0,0.75);
   border: 4px solid #383838;
   box-sizing: border-box;
+  display: inline-block;
+  margin-bottom: 5px;
 }
 
 .widget {
@@ -150,7 +152,7 @@ input {
   font-family: 'Fjalla One', sans-serif;
 }
 
-.live-player .name .nick {
+.name .nick {
   color: gray;
   letter-spacing: 1px;
   /*text-transform: uppercase;*/

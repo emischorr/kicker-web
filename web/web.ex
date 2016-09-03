@@ -36,6 +36,8 @@ defmodule KickerWeb.Web do
 
       import KickerWeb.Router.Helpers
       import KickerWeb.Gettext
+
+      import KickerWeb.Session, only: [current_player: 1, logged_in?: 1]
     end
   end
 
@@ -52,6 +54,8 @@ defmodule KickerWeb.Web do
       import KickerWeb.Router.Helpers
       import KickerWeb.ErrorHelpers
       import KickerWeb.Gettext
+
+      import KickerWeb.Session, only: [current_player: 1, logged_in?: 1]
     end
   end
 

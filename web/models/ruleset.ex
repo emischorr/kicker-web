@@ -6,11 +6,13 @@ defmodule KickerWeb.Ruleset do
     field :goal_limit, :integer
     field :duration_limit, :integer
 
+    has_many :matches, KickerWeb.Match
+
     timestamps()
   end
 
-  @required_fields ~w(name goal_limit duration_limit)
-  @optional_fields ~w()
+  @required_fields ~w(name goal_limit duration_limit)a
+  @optional_fields ~w()a
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -20,6 +22,7 @@ defmodule KickerWeb.Ruleset do
   """
   def changeset(model, params \\ %{}) do
     model
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, @required_fields ++ @optional_fields)
+    |> validate_required(@required_fields)
   end
 end

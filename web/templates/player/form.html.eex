@@ -6,15 +6,33 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :name, class: "control-label" %>
-    <%= text_input f, :name, class: "form-control" %>
-    <%= error_tag f, :name %>
+    <%= label f, :forename, class: "control-label" %>
+    <%= text_input f, :forename, class: "form-control" %>
+    <%= error_tag f, :forename %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :nick, class: "control-label" %>
+    <%= text_input f, :nick, class: "form-control" %>
+    <%= error_tag f, :nick %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :surname, class: "control-label" %>
+    <%= text_input f, :surname, class: "form-control" %>
+    <%= error_tag f, :surname %>
   </div>
 
   <div class="form-group">
     <%= label f, :email, class: "control-label" %>
     <%= text_input f, :email, class: "form-control" %>
     <%= error_tag f, :email %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :bio, class: "control-label" %>
+    <%= textarea f, :bio, class: "form-control" %>
+    <%= error_tag f, :bio %>
   </div>
 
   <div class="form-group">

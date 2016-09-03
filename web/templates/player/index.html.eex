@@ -4,12 +4,11 @@
 
 <div class="player box">
   <a href="<%= player_path(@conn, :show, player) %>">
-    <header><%= player.name %></header>
+    <header><%= name(player) %></header>
   </a>
-  <img src="images/player.jpg" class="profile"/>
+  <img src="/images/player.jpg" class="profile"/>
   <div class="body">
     <ul>
-      <li>Größe: 186cm</li>
       <li>Spiele: 45</li>
       <li>Locks: 2</li>
     </ul>

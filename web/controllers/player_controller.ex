@@ -2,6 +2,7 @@ defmodule KickerWeb.PlayerController do
   use KickerWeb.Web, :controller
 
   alias KickerWeb.Player
+  alias KickerWeb.Statistics
 
   plug :scrub_params, "player" when action in [:create, :update]
 
@@ -12,11 +13,12 @@ defmodule KickerWeb.PlayerController do
 
   def show(conn, %{"id" => id} = params) do
     player = Repo.get(Player, id)
-    render(conn, "show.html", player: player)
+    player_statistics = Statistics.player_statistics(id)
+    render(conn, "show.html", player: player, player_statistics: player_statistics)
   end
 
   def profile(conn, _params) do
-    player = conn.current_user
+    player = current_player(conn)
     changeset = Player.changeset(player)
     render(conn, "edit.html", player: player, changeset: changeset)
   end
@@ -32,7 +34,7 @@ defmodule KickerWeb.PlayerController do
     case Repo.insert(changeset) do
       {:ok, _player} ->
         conn
-        |> put_flash(:info, "Account created successfully.")
+        |> put_flash(:info, "Player created successfully.")
         |> redirect(to: session_path(conn, :new))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -40,13 +42,13 @@ defmodule KickerWeb.PlayerController do
   end
 
   def update(conn, %{"player" => player_params}) do
-    player = conn.current_user
+    player = current_player(conn)
     changeset = Player.changeset(player, player_params)
 
     case Repo.update(changeset) do
       {:ok, player} ->
         conn
-        |> put_flash(:info, "Account updated successfully.")
+        |> put_flash(:info, "Player updated successfully.")
         |> redirect(to: player_path(conn, :profile))
       {:error, changeset} ->
         render(conn, "edit.html", player: player, changeset: changeset)
@@ -54,14 +56,14 @@ defmodule KickerWeb.PlayerController do
   end
 
   def delete(conn, _params) do
-    player = conn.current_user
+    player = current_player(conn)
 
     # Here we use delete! (with a bang) because we expect
     # it to always work (and if it does not, it will raise).
     Repo.delete!(player)
 
     conn
-    |> put_flash(:info, "Account deleted successfully.")
+    |> put_flash(:info, "Player deleted successfully.")
     |> redirect(to: session_path(conn, :new))
   end
 

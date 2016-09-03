@@ -25,7 +25,11 @@
           <!-- <li><a href="/rules">Rules</a></li> -->
         </ul>
         <ul class="right">
+          <%= if logged_in?(@conn) do %>
+          <li><%= link current_player(@conn).forename, to: player_path(@conn, :profile) %></li>
+          <% else %>
           <li><a href="<%= session_path @conn, :new %>">Login</a></li>
+          <% end %>
         </ul>
       </nav>
     </header>
