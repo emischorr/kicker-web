@@ -21,16 +21,16 @@ defmodule KickerWeb.Event.Receiver do
     {:noreply, %{pub_sub_conn: pub_sub_conn}}
   end
 
-  def handle_info({:redix_pubsub, :psubscribe, _topic, _}, state) do
+  def handle_info({:redix_pubsub, _pid, :psubscribed, _topic}, state) do
     {:noreply, state}
   end
 
-  def handle_info({:redix_pubsub, :pmessage, message, topic}, state) do
-    "event."<>event = elem(topic, 1)
-    IO.puts "Handling Event <#{event}>: #{inspect message}"
+  def handle_info({:redix_pubsub, _pid, :pmessage, message}, state) do
+    "event."<>event = message.channel
+    IO.puts "Handling Event <#{event}>: #{inspect message.payload}"
     case event do
       "start" -> KickerWeb.MatchServer.start_match()
-      "goal" -> KickerWeb.MatchServer.goal(message)
+      "goal" -> KickerWeb.MatchServer.goal(message.payload)
         x -> Logger.warn "Unknown event: #{x}"
     end
 

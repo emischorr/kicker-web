@@ -34,6 +34,8 @@ config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
 config :kicker_web, KickerWeb.Repo,
-  adapter: Sqlite.Ecto,
-  database: "db/kicker_web_dev.sqlite",
-  pool_size: 10
+  adapter: Ecto.Adapters.Postgres,
+  database: "kicker_web_dev",
+  username: "kicker_web",
+  password: "kicker_web",
+  hostname: "localhost"

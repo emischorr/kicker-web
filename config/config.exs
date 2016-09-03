@@ -14,6 +14,8 @@ config :kicker_web, KickerWeb.Endpoint,
   pubsub: [name: KickerWeb.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :kicker_web, ecto_repos: [KickerWeb.Repo]
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

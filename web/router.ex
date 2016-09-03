@@ -20,8 +20,8 @@ defmodule KickerWeb.Router do
   scope "/", KickerWeb do
     pipe_through :browser # Use the default browser stack
 
-    resources "sessions", SessionController, only: [ :new, :create ], singleton: true
-    get "logout", SessionController, :delete
+    resources "/sessions", SessionController, only: [ :new, :create ], singleton: true
+    get "/logout", SessionController, :delete
 
     get "/", DashboardController, :index
     get "/live", DashboardController, :live
