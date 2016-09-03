@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  height: 100%;
   background-image: url("/images/chalkboard-background.jpg");
   background-color: #404040;
   background-blend-mode: overlay;
@@ -90,10 +91,12 @@ table .right {
 }
 
 .container {
+  height: 100%;
   margin: 0 50px;
 }
 
 .main {
+  height: 100%;
   margin-top: 80px;
   position: relative;
 }

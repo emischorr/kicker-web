@@ -9,3 +9,9 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+KickerWeb.Repo.insert(%KickerWeb.Table{name: "Kicker"})
+
+KickerWeb.Repo.insert(%KickerWeb.Ruleset{name: "default match", goal_limit: 5, duration_limit: 0 })
+KickerWeb.Repo.insert(%KickerWeb.Ruleset{name: "death match", goal_limit: 1, duration_limit: 0 })
+KickerWeb.Repo.insert(%KickerWeb.Ruleset{name: "competition match", goal_limit: 10, duration_limit: 5*60 })
