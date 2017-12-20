@@ -47,18 +47,8 @@
           <th>Looses</th>
         </tr>
         <tr>
-          <td>Enrico Mischorr</td>
-          <td class="right">10</td>
-          <td class="right">3</td>
-        </tr>
-        <tr>
-          <td>Christopher Klein</td>
-          <td class="right">8</td>
-          <td class="right">4</td>
-        </tr>
-        <tr>
         <%= for player <- @top_players do %>
-          <td><%= player.name %></td>
+          <td><%= player.forename %></td>
           <td class="right">8</td>
           <td class="right">4</td>
         <% end %>

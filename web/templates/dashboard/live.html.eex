@@ -1,6 +1,12 @@
 <div id="match-result" class="live result">
   <span>0:0</span>
 </div>
+<div id="end-message" class="live-message" style="display: none;">
+  <span class="message">End match?</span>
+  <br />
+  <span class="button" id="end-button-yes">Yes</span>
+  <span class="button" id="end-button-no">No</span>
+</div>
 <div class="team black">
   <div class="live-player">
     <img class="avatar" src="images/player.jpg" />

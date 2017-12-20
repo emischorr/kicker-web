@@ -35,6 +35,10 @@ channel.on("result", state => {
   // update result
   $('#match-result span').html(state.team1+":"+state.team2)
 })
+channel.on("end", state => {
+  console.log("end game")
+  $('#end-message').show()
+})
 
 var csrf = document.querySelector("meta[name=csrf]").content;
 

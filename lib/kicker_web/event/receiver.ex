@@ -2,6 +2,9 @@ defmodule KickerWeb.Event.Receiver do
   use GenServer
   require Logger
 
+  alias KickerWeb.Repo
+  alias KickerWeb.Ruleset
+
   @process_name :event_receiver
   @redis_sub_channel "event.*"
 
@@ -29,9 +32,16 @@ defmodule KickerWeb.Event.Receiver do
     "event."<>event = message.channel
     IO.puts "Handling Event <#{event}>: #{inspect message.payload}"
     case event do
-      "start" -> KickerWeb.MatchServer.start_match()
-      "goal" -> KickerWeb.MatchServer.goal(message.payload)
-        x -> Logger.warn "Unknown event: #{x}"
+      "start" ->
+        Ruleset
+        |> Repo.get(message.payload)
+        |> KickerWeb.MatchServer.start_match
+      "goal" ->
+        KickerWeb.MatchServer.goal(message.payload)
+      "revoke" ->
+        KickerWeb.MatchServer.revoke_goal(message.payload)
+      x ->
+        Logger.warn "Unknown event: #{x}"
     end
 
     {:noreply, state}

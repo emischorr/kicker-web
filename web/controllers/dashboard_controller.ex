@@ -1,11 +1,13 @@
 defmodule KickerWeb.DashboardController do
   use KickerWeb.Web, :controller
 
+  alias KickerWeb.Repo
+  alias KickerWeb.Player
+
   # plug :put_layout, "minimal.html"
 
   def index(conn, _params) do
-    IO.inspect KickerWeb.Redis.command(~w(PUBLISH event.goal 1))
-    top_players = []
+    top_players = Repo.all(Player)
     render conn, "index.html", top_players: top_players
   end
 
