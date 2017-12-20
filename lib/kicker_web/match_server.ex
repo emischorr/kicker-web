@@ -16,7 +16,8 @@ defmodule KickerWeb.MatchServer do
       nil ->
         {:ok, pid} = start_link()
         Logger.debug "Started new match process: #{@process_name}."
-      _pid -> Logger.debug "Restart existing match."
+      _pid ->
+        Logger.debug "Restart existing match."
     end
     GenServer.call(@process_name, :start_match)
   end
@@ -24,6 +25,14 @@ defmodule KickerWeb.MatchServer do
   def goal(team) do
     try do
       GenServer.call(@process_name, {:goal, team})
+    catch
+      :exit, _ -> "match not yet started"
+    end
+  end
+
+  def remove_goal(team) do
+    try do
+      GenServer.call(@process_name, %{:revoke_goal, team})
     catch
       :exit, _ -> "match not yet started"
     end
@@ -45,6 +54,15 @@ defmodule KickerWeb.MatchServer do
     new_state = case team do
       "1" -> update_in state[:team1], &(&1+1)
       "2" -> update_in state[:team2], &(&1+1)
+    end
+    broadcast_state(new_state)
+    {:reply, :ok, new_state}
+  end
+
+  def handle_call({:revoke_goal, team}, _from, state) do
+    new_state = case team do
+      "1" -> update_in state[:team1], &(&1-1)
+      "2" -> update_in state[:team2], &(&1-1)
     end
     broadcast_state(new_state)
     {:reply, :ok, new_state}
