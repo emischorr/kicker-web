@@ -1,7 +1,7 @@
 <div class="login box">
   <h2>New Match</h2>
 
-  <%= render "form.html", changeset: @changeset, players: @players, action: match_path(@conn, :create) %>
+  <%= render "form.html", changeset: @changeset, players: @players, rulesets: @rulesets, action: match_path(@conn, :create) %>
 
   <%= link "Back", to: match_path(@conn, :new) %>
 </div>

@@ -4,8 +4,8 @@
 <div id="end-message" class="live-message" style="display: none;">
   <span class="message">End match?</span>
   <br />
-  <span class="button" id="end-button-yes">Yes</span>
-  <span class="button" id="end-button-no">No</span>
+  <span class="button green" id="end-button-yes">Yes</span>
+  <span class="button red" id="end-button-no">No</span>
 </div>
 <div class="team black">
   <div class="live-player">
@@ -27,5 +27,5 @@
   </div>
 </div>
 <div class="live-button">
-  <span class="button" id="start-button">Start new match</span>
+  <span class="button green" id="start-button">Start new match</span>
 </div>

@@ -1,17 +1,20 @@
 <h2>Matches</h2>
 
-<a href="">Find Match</a>
-<a href="">New Match</a>
+<%= link "New Match", to: match_path(@conn, :new) %>
 
+<div class="matches">
 <%= for match <- @matches do %>
 
-<div class="match box">
-  <a href="<%= match_path(@conn, :show, match) %>">
-    <header>Match</header>
-  </a>
-  <div class="body">
-
+  <div class="match box">
+    <a href="<%= match_path(@conn, :show, match) %>">
+      <header>Match</header>
+    </a>
+    <div class="body">
+      <span><%= team1(match) %></span>
+      <span><%= result(match) %></span>
+      <span><%= team2(match) %></span>
+    </div>
   </div>
-</div>
 
 <% end %>
+</div>

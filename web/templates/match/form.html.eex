@@ -6,6 +6,12 @@
   <% end %>
 
   <div class="form-group">
+    <%= label f, :ruleset, class: "control-label" %>
+    <%= select f, :ruleset_id, Enum.map(@rulesets, &{&1.name, &1.id}), class: "form-control" %>
+    <%= error_tag f, :ruleset_id %>
+  </div>
+
+  <div class="form-group">
     <%= label f, :keeper_team1, class: "control-label" %>
     <%= select f, :keeper_team1_id, Enum.map(@players, &{&1.forename, &1.id}), prompt: "--", class: "form-control" %>
     <%= error_tag f, :keeper_team1_id %>

@@ -88,6 +88,7 @@ defmodule KickerWeb.MatchServer do
       state ->
         KickerWeb.Endpoint.broadcast("match:live", "result", Map.take(state, [:team1, :team2]))
     end
+    state
   end
 
 end

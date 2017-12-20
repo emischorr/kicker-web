@@ -4,6 +4,7 @@ defmodule KickerWeb.MatchController do
   alias KickerWeb.Repo
   alias KickerWeb.Match
   alias KickerWeb.Player
+  alias KickerWeb.Ruleset
 
   def index(conn, _params) do
     matches = Repo.all(Match)
@@ -18,7 +19,8 @@ defmodule KickerWeb.MatchController do
   def new(conn, _params) do
     changeset = Match.changeset(%Match{})
     players = Repo.all(Player)
-    render(conn, "new.html", changeset: changeset, players: players)
+    rulesets = Repo.all(Ruleset)
+    render(conn, "new.html", changeset: changeset, players: players, rulesets: rulesets)
   end
 
   def create(conn, %{"match" => match_params}) do
@@ -28,9 +30,11 @@ defmodule KickerWeb.MatchController do
       {:ok, _match} ->
         conn
         |> put_flash(:info, "Match created successfully.")
-        |> redirect(to: match_path(conn, :new))
+        |> redirect(to: match_path(conn, :index))
       {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        players = Repo.all(Player)
+        rulesets = Repo.all(Ruleset)
+        render(conn, "new.html", changeset: changeset, players: players, rulesets: rulesets)
     end
   end
 

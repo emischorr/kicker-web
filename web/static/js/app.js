@@ -37,6 +37,7 @@ channel.on("result", state => {
 })
 channel.on("end", state => {
   console.log("end game")
+  $('#match-result span').html(state.team1+":"+state.team2)
   $('#end-message').show()
 })
 
@@ -55,6 +56,7 @@ $(function() {
       complete: function() {},
       success: function(data) {
         console.log(data)
+        $('#start-button').hide()
       },
       error: function(err) {
         console.error(err)

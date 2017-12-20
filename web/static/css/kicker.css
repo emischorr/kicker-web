@@ -193,10 +193,18 @@ input {
 }
 
 .button {
-  background: #68A568;
+  background: gray;
   padding: 5px 20px;
   height: 50px;
   border-radius: 25px;
   display: inline-block;
   box-sizing: border-box;
+}
+
+.button.green {
+  background: #68A568;
+}
+
+.button.red {
+  background: #a56868;
 }
